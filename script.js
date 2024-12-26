@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
     const areasBox = document.getElementById('areasBox');
     const addPersonButton = document.getElementById('addPersonButton');
+    const removeAllButton = document.getElementById('removeAllButton');
     const calculateButton = document.getElementById('calculateButton');
     const resultsArea = document.getElementById('resultsArea');
     const totalAreaField = document.getElementById('totalArea');
@@ -10,6 +11,11 @@ document.addEventListener("DOMContentLoaded", function() {
     // Обработчик кнопки "Добавить лицо"
     addPersonButton.addEventListener('click', function() {
         addAreaField();
+    });
+
+    // Обработчик кнопки "Удалить все"
+    removeAllButton.addEventListener('click', function() {
+        removeAllAreas();
     });
 
     // Обработчик кнопки "Рассчитать доли"
@@ -32,10 +38,10 @@ document.addEventListener("DOMContentLoaded", function() {
         areaFields.push(areaField);
         areaBox.appendChild(areaField);
 
-        // Кнопка удаления
+        // Кнопка удаления с иконкой
         const removeButton = document.createElement('button');
-        removeButton.textContent = 'Удалить лицо';
         removeButton.classList.add('remove-button');
+        removeButton.innerHTML = '&#10060;'; // Используем иконку крестика
         removeButton.addEventListener('click', function() {
             removeAreaField(areaBox);
         });
@@ -44,7 +50,7 @@ document.addEventListener("DOMContentLoaded", function() {
         areasBox.appendChild(areaBox);
     }
 
-    // Функция удаления поля
+    // Функция удаления одного поля
     function removeAreaField(areaBox) {
         areasBox.removeChild(areaBox);
         // Удаляем поле из массива areaFields
@@ -52,6 +58,14 @@ document.addEventListener("DOMContentLoaded", function() {
         if (index !== -1) {
             areaFields.splice(index, 1);
         }
+    }
+
+    // Функция удаления всех полей
+    function removeAllAreas() {
+        areasBox.innerHTML = ''; // Очищаем все поля
+        areaFields = []; // Очищаем массив
+        totalAreaField.value = ''; // Очищаем поле общей площади
+        resultsArea.value = ''; // Очищаем область результатов
     }
 
     // Функция для расчета долей

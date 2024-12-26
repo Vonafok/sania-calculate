@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Рассчет долей недвижимости</title>
     <link rel="stylesheet" href="styles.css">
+    <!-- Подключаем Font Awesome для иконок -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -14,6 +16,10 @@
         <div class="input-group">
             <label for="totalArea">Общая площадь:</label>
             <input type="number" id="totalArea" placeholder="Введите общую площадь">
+            <!-- Иконка для удаления всех полей -->
+            <button id="removeAllButton" title="Очистить всё">
+                <i class="fas fa-trash"></i>
+            </button>
         </div>
 
         <!-- Секция для добавления площадей лиц -->
@@ -26,6 +32,10 @@
         <!-- Кнопка для расчета -->
         <button id="calculateButton">Рассчитать доли</button>
     </div>
+
+    <footer>
+        <p>Сделано при поддержке Бугайцова Александра для <a href="https://гюс48.рф" target="_blank">ООО «Городская Юридическая служба»</a></p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
